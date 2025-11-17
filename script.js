@@ -65,16 +65,13 @@ Check out my [Substack](https://jackjross.substack.com) for the latest writing.
 ## Current
 
 **Associate Director of Growth** @ [CPGIO](https://cpg.io)
-*Feb 2025 - Present*
+*Jan 2024 - Present*
 
 Partner once, sell everywhere. Helping brands unlock growth through eCommerce.
 
 ---
 
 ## Experience
-
-**Business Development Lead** - CPGIO
-*Jan 2024 - Feb 2025*
 
 **Creative Strategist** - Jack Ross Co
 *Apr 2018 - Dec 2023* · Vietnam
