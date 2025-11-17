@@ -45,9 +45,16 @@ Five years of documenting Vietnam's streets, people, and culture.
 - Editing software (Lightroom, Capture One)
 
 ## Digital Tools
-- Squarespace for [portfolio](https://www.jackjross.com)
-- Substack for newsletter
-- Social media management
+- superhuman
+- github
+- chatgpt
+- codex
+- factory
+- slack
+- granola
+- whispr flow
+- cursor
+- replit
 
 ## Workflow
 - Synology NAS
