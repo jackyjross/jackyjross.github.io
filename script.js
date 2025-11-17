@@ -47,8 +47,7 @@ Five years of documenting Vietnam's streets, people, and culture.
 ## Digital Tools
 - superhuman
 - github
-- chatgpt
-- codex
+- claude code
 - factory
 - slack
 - granola
