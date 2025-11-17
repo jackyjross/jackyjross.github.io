@@ -16,7 +16,7 @@ const resizer = document.getElementById('resizer');
 const pageContent = {
     projects: `# Projects
 
-## Chicago Streets (Ongoing)
+## [Chicago Streets](https://jackjross.com/) (Ongoing)
 Documenting the urban landscape and human stories of Chicago through street photography.
 
 - Black and white urban photography
