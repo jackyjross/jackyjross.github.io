@@ -23,7 +23,7 @@ Documenting the urban landscape and human stories of Chicago through street phot
 - Focus on human moments and architectural interplay
 - Exploring neighborhoods and communities
 
-## Vietnam 2025 (Upcoming)
+## Vietnam 2025
 Returning to Vietnam for a new photographic series.
 
 - Building on 2018-2023 documentation
