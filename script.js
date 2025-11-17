@@ -13,7 +13,7 @@ const sidebar = document.getElementById('sidebar');
 const resizer = document.getElementById('resizer');
 
 // Content storage
-const content = {
+const pageContent = {
     projects: `# Projects
 
 ## Chicago Streets (Ongoing)
@@ -82,8 +82,8 @@ function switchTab(tabName) {
 
     // Load content
     const bodyElement = document.getElementById(`${tabName}-body`);
-    if (bodyElement && content[tabName]) {
-        bodyElement.innerHTML = `<code>${marked.parse(content[tabName])}</code>`;
+    if (bodyElement && pageContent[tabName]) {
+        bodyElement.innerHTML = `<code>${marked.parse(pageContent[tabName])}</code>`;
     }
 
     // Random additions/deletions for effect
