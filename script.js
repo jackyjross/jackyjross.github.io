@@ -62,7 +62,38 @@ Check out my [Substack](https://jackjross.substack.com) for the latest writing.
 `,
     dayjob: `# Day Job
 
-Details about professional work coming soon.
+## Current
+
+**Associate Director of Growth** @ [CPGIO](https://cpg.io)
+*Feb 2025 - Present*
+
+Partner once, sell everywhere. Helping brands unlock growth through eCommerce.
+
+---
+
+## Experience
+
+**Business Development Lead** - CPGIO
+*Jan 2024 - Feb 2025*
+
+**Creative Strategist** - Jack Ross Co
+*Apr 2018 - Dec 2023* · Vietnam
+
+**Senior Inside Sales Rep** - Narrative Science
+*May 2017 - Apr 2018* · Built inside sales desk from scratch, 100-120% to quota
+
+**Senior Account Executive** - Raise
+*Jan 2016 - May 2017* · Grew book from $100K to $1.3M
+
+**Earlier:** TMC/C.H. Robinson, Kraft Heinz, Jimmy John's
+
+---
+
+## Education
+
+**UW-Whitewater** - BBA, Supply Chain Management
+
+**Parkland College** - AS, Business Management
 `
 };
 
