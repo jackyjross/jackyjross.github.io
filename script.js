@@ -45,7 +45,7 @@ Five years of documenting Vietnam's streets, people, and culture.
 - Editing software (Lightroom, Capture One)
 
 ## Digital Tools
-- Squarespace for portfolio
+- Squarespace for [portfolio](https://www.jackjross.com)
 - Substack for newsletter
 - Social media management
 
