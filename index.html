@@ -29,6 +29,9 @@
             <button class="icon-btn" id="theme-toggle" title="Toggle theme">
                 <i data-lucide="sun" id="theme-toggle-icon"></i>
             </button>
+            <button class="icon-btn" id="terminal-toggle" title="Open Terminal (`)">
+                <i data-lucide="terminal"></i>
+            </button>
         </div>
     </div>
 
@@ -125,6 +128,29 @@
                 </div>
                 <div class="diff-block" id="dayjob-body">
                     <!-- Content loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terminal Overlay -->
+    <div class="terminal-overlay" id="terminal-overlay">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="terminal-title">jackross@portfolio ~ %</span>
+                <button class="terminal-close" id="terminal-close">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <div class="terminal-output" id="terminal-output">
+                    <div class="terminal-line">Welcome to Jack Ross's interactive portfolio.</div>
+                    <div class="terminal-line">Type <span class="cmd-highlight">help</span> to see available commands.</div>
+                    <div class="terminal-line">&nbsp;</div>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">→</span>
+                    <input type="text" id="terminal-input" class="terminal-input" autofocus spellcheck="false" autocomplete="off">
                 </div>
             </div>
         </div>
