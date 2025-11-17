@@ -59,6 +59,10 @@ Five years of documenting Vietnam's streets, people, and culture.
 Coming soon - thoughts on photography, travel, and creative process.
 
 Check out my [Substack](https://jackjross.substack.com) for the latest writing.
+`,
+    dayjob: `# Day Job
+
+Details about professional work coming soon.
 `
 };
 
@@ -169,6 +173,9 @@ document.addEventListener('keydown', (e) => {
             break;
         case 'b':
             switchTab('blog');
+            break;
+        case 'd':
+            switchTab('dayjob');
             break;
     }
 });
