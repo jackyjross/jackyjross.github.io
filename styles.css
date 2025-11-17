@@ -405,6 +405,31 @@ body.dark-mode .diff-block {
     padding-left: 0.5rem;
 }
 
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.linkedin-btn:hover {
+    background-color: var(--color-divider);
+    color: var(--color-link-hover);
+}
+
+.linkedin-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
 .diff-block a {
     color: inherit;
     text-decoration: underline;
