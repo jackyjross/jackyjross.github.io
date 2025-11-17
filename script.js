@@ -48,9 +48,7 @@ Five years of documenting Vietnam's streets, people, and culture.
 - superhuman
 - github
 - claude code
-- factory
 - slack
-- granola
 - whispr flow
 - cursor
 - replit
