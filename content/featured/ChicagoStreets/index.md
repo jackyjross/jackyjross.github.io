@@ -1,7 +1,6 @@
 ---
 date: '2024-01-01'
 title: 'Chicago Streets'
-cover: './chicago.png'
 external: 'https://jackjross.com/'
 tech:
   - Street Photography

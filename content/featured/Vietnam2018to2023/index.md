@@ -1,7 +1,6 @@
 ---
 date: '2023-12-01'
 title: 'Vietnam 2018-2023'
-cover: './vietnam.png'
 external: 'https://jackjross.com/vietnam2018-2023'
 tech:
   - Street Photography

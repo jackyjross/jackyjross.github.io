@@ -1,7 +1,6 @@
 ---
 date: '2025-01-01'
 title: 'Vietnam 2025'
-cover: './vietnam2025.png'
 external: 'https://jackjross.com/vietnam-2025'
 tech:
   - Street Photography
