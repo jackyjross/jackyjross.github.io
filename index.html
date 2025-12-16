@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Ross - Photographer & Growth Professional</title>
+    <meta name="description" content="Street photographer and growth professional based in Chicago. Documenting urban landscapes while driving eCommerce growth.">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body x-data="{ theme: 'light' }" :class="theme">
+    <!-- WebGL Canvas Background -->
+    <canvas id="canvas"></canvas>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#info">Info</a>
+            <a href="#contact">Contact</a>
+            <div class="theme-switcher">
+                <button @click="theme = 'light'" :class="{ active: theme === 'light' }">Light</button>
+                <button @click="theme = 'dark'" :class="{ active: theme === 'dark' }">Dark</button>
+                <button @click="theme = 'mono'" :class="{ active: theme === 'mono' }">Mono</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section id="home" class="hero">
+                <h1>Jack Ross</h1>
+                <p class="subtitle">Photographer & Growth Professional</p>
+                <p class="description">I document urban landscapes and human stories through street photography while driving eCommerce growth at CPGIO. Based in Chicago, previously spent five years documenting Vietnam.</p>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>Projects</h2>
+                <ul class="project-list">
+                    <li>
+                        <a href="https://jackjross.com/" target="_blank" rel="noopener">
+                            <span class="project-title">Chicago Streets</span>
+                            <span class="project-date">2024 - Present</span>
+                        </a>
+                        <p class="project-description">Ongoing documentation of Chicago's urban landscape and human stories</p>
+                    </li>
+                    <li>
+                        <a href="https://jackjross.com/vietnam-2025" target="_blank" rel="noopener">
+                            <span class="project-title">Vietnam 2025</span>
+                            <span class="project-date">2025</span>
+                        </a>
+                        <p class="project-description">Returning to Vietnam for new perspectives and stories</p>
+                    </li>
+                    <li>
+                        <a href="https://jackjross.com/vietnam2018-2023" target="_blank" rel="noopener">
+                            <span class="project-title">Vietnam 2018-2023</span>
+                            <span class="project-date">2018 - 2023</span>
+                        </a>
+                        <p class="project-description">Five years of cultural documentation and street photography</p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Info Section -->
+            <section id="info">
+                <h2>Info</h2>
+                <div class="info-content">
+                    <p>I'm a photographer and growth professional based in Chicago. I blend street photography with business development, currently serving as Associate Director of Growth at <a href="https://cpg.io" target="_blank">CPGIO</a>.</p>
+
+                    <p>My photography journey began in Vietnam, where I spent five years (2018-2023) documenting urban life and culture. Now in Chicago, I continue capturing the interplay between architecture and human moments across diverse neighborhoods.</p>
+
+                    <p>On the professional side, I help consumer brands unlock growth through eCommerce, having previously scaled accounts from $100K to $1.3M at Raise and built inside sales operations at Narrative Science.</p>
+
+                    <h3>Tools</h3>
+                    <ul>
+                        <li>Fujifilm X-Pro3 + XF 23mm F2</li>
+                        <li>Lightroom, Capture One</li>
+                        <li>Claude Code, Cursor, Replit</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <h2>Contact</h2>
+                <ul class="contact-list">
+                    <li><a href="mailto:jackj.ross@gmail.com">Email</a></li>
+                    <li><a href="https://instagram.com/jackjross" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://github.com/jackyjross" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/jackjross" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="https://jackjross.substack.com" target="_blank" rel="noopener">Substack</a></li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Jack Ross</p>
+            <p class="inspiration">Design inspired by <a href="https://p5aholic.me" target="_blank">p5aholic.me</a></p>
+        </footer>
+    </div>
+
+    <script src="shader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
