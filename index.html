@@ -3,42 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack Ross - Photographer & Growth Professional</title>
-    <meta name="description" content="Street photographer and growth professional based in Chicago. Documenting urban landscapes while driving eCommerce growth.">
+    <title>Jack Ross</title>
+    <meta name="description" content="Photographer & Growth Professional based in Chicago.">
     <link rel="stylesheet" href="style.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body x-data="{ theme: 'light' }" :class="theme">
+<body>
     <!-- WebGL Canvas Background -->
     <canvas id="canvas"></canvas>
 
-    <div class="container">
-        <!-- Navigation -->
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#projects">Projects</a>
-            <a href="#info">Info</a>
-            <a href="#contact">Contact</a>
-            <div class="theme-switcher">
-                <button @click="theme = 'light'" :class="{ active: theme === 'light' }">Light</button>
-                <button @click="theme = 'dark'" :class="{ active: theme === 'dark' }">Dark</button>
-                <button @click="theme = 'mono'" :class="{ active: theme === 'mono' }">Mono</button>
-            </div>
-        </nav>
+    <!-- Header -->
+    <header>
+        <h1>Jack Ross</h1>
+        <p class="subtitle">Photographer & Growth Professional</p>
+    </header>
 
-        <!-- Main Content -->
-        <main>
-            <!-- Hero Section -->
-            <section id="home" class="hero">
-                <h1>Jack Ross</h1>
-                <p class="subtitle">Photographer & Growth Professional</p>
-                <p class="description">I document urban landscapes and human stories through street photography while driving eCommerce growth at CPGIO. Based in Chicago, previously spent five years documenting Vietnam.</p>
-            </section>
+    <!-- Left Navigation -->
+    <nav class="left-nav">
+        <ul>
+            <li><a href="#" class="nav-dot">•</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#info">Info</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
+    <!-- Social Links -->
+    <div class="social-links">
+        <a href="https://instagram.com/jackjross" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://github.com/jackyjross" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
+        <a href="https://linkedin.com/in/jackjross" target="_blank" rel="noopener" aria-label="LinkedIn">LI</a>
+    </div>
+
+    <!-- Bio Text (Bottom Right) -->
+    <div class="bio">
+        <p>Born in 1991 in Chicago, Illinois. I believe street photography can be more diverse and inspiring. With a mission to document urban landscapes and human stories, I am pursuing new perspectives through my camera while driving eCommerce growth.</p>
+    </div>
+
+    <!-- Main Content (Hidden by default, shown when clicking nav items) -->
+    <main id="main-content" class="hidden">
+        <div class="content-wrapper">
             <!-- Projects Section -->
-            <section id="projects">
+            <section id="projects" class="content-section">
                 <h2>Projects</h2>
                 <ul class="project-list">
                     <li>
@@ -66,14 +73,12 @@
             </section>
 
             <!-- Info Section -->
-            <section id="info">
+            <section id="info" class="content-section">
                 <h2>Info</h2>
                 <div class="info-content">
-                    <p>I'm a photographer and growth professional based in Chicago. I blend street photography with business development, currently serving as Associate Director of Growth at <a href="https://cpg.io" target="_blank">CPGIO</a>.</p>
+                    <p>I'm a photographer and growth professional based in Chicago. I blend street photography with business development, currently serving as Associate Director of Growth at CPGIO.</p>
 
                     <p>My photography journey began in Vietnam, where I spent five years (2018-2023) documenting urban life and culture. Now in Chicago, I continue capturing the interplay between architecture and human moments across diverse neighborhoods.</p>
-
-                    <p>On the professional side, I help consumer brands unlock growth through eCommerce, having previously scaled accounts from $100K to $1.3M at Raise and built inside sales operations at Narrative Science.</p>
 
                     <h3>Tools</h3>
                     <ul>
@@ -85,24 +90,23 @@
             </section>
 
             <!-- Contact Section -->
-            <section id="contact">
+            <section id="contact" class="content-section">
                 <h2>Contact</h2>
                 <ul class="contact-list">
-                    <li><a href="mailto:jackj.ross@gmail.com">Email</a></li>
+                    <li><a href="mailto:jackj.ross@gmail.com">jackj.ross@gmail.com</a></li>
                     <li><a href="https://instagram.com/jackjross" target="_blank" rel="noopener">Instagram</a></li>
                     <li><a href="https://github.com/jackyjross" target="_blank" rel="noopener">GitHub</a></li>
                     <li><a href="https://linkedin.com/in/jackjross" target="_blank" rel="noopener">LinkedIn</a></li>
                     <li><a href="https://jackjross.substack.com" target="_blank" rel="noopener">Substack</a></li>
                 </ul>
             </section>
-        </main>
+        </div>
+    </main>
 
-        <!-- Footer -->
-        <footer>
-            <p>© 2025 Jack Ross</p>
-            <p class="inspiration">Design inspired by <a href="https://p5aholic.me" target="_blank">p5aholic.me</a></p>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>© Jack Ross</p>
+    </footer>
 
     <script src="shader.js"></script>
     <script src="script.js"></script>

@@ -60,23 +60,23 @@
 
         void main() {
             vec2 st = vUv;
-            vec2 pos = st * 4.0;
+            vec2 pos = st * 3.0;
 
-            // Animated noise layers
-            float n1 = snoise(pos + uTime * 0.1);
-            float n2 = snoise(pos * 2.0 - uTime * 0.15);
-            float n3 = snoise(pos * 3.0 + uTime * 0.08);
+            // Animated noise layers (slower movement)
+            float n1 = snoise(pos + uTime * 0.05);
+            float n2 = snoise(pos * 1.5 - uTime * 0.08);
+            float n3 = snoise(pos * 2.5 + uTime * 0.04);
 
             // Combine noise layers
             float noise = (n1 + n2 * 0.5 + n3 * 0.25) / 1.75;
 
-            // Create flowing pattern
-            float pattern = sin(pos.x + noise * 2.0) * cos(pos.y + noise * 2.0);
-            pattern = smoothstep(-0.5, 0.5, pattern);
+            // Create subtle flowing pattern
+            float pattern = sin(pos.x + noise * 1.5) * cos(pos.y + noise * 1.5);
+            pattern = smoothstep(-0.3, 0.3, pattern);
 
-            // Final color
-            vec3 color = vec3(noise * 0.5 + 0.5);
-            color = mix(color, vec3(pattern), 0.3);
+            // Very dark, subtle color (mostly grayscale, very low brightness)
+            vec3 color = vec3(noise * 0.15 + 0.1);
+            color = mix(color, vec3(pattern * 0.2), 0.2);
 
             gl_FragColor = vec4(color, 1.0);
         }
