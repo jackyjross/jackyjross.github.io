@@ -39,19 +39,19 @@ export default function ThemeSwitcher({ onThemeChange, onMonospacedChange }: The
   };
 
   return (
-    <div className="fixed bottom-[120px] left-[70px] z-[150] flex flex-col gap-3 md:bottom-[120px] md:left-[70px] bottom-[100px] left-6">
+    <div className="fixed bottom-[120px] left-[70px] z-[150] flex flex-col gap-3">
       {/* Monospaced Toggle */}
       <label className="flex items-center gap-2.5 cursor-pointer hover:opacity-60 transition-opacity">
         <div
-          className={`w-3.5 h-3.5 md:w-3.5 md:h-3.5 w-3 h-3 border border-current relative transition-all ${
+          className={`w-3.5 h-3.5 border border-current relative transition-all ${
             isMonospaced ? 'bg-current' : ''
           }`}
         >
           {isMonospaced && (
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 md:w-1.5 md:h-1.5 w-1 h-1 bg-[--bg-color]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[--bg-color]" />
           )}
         </div>
-        <span className="text-[13px] md:text-[13px] text-[10px] font-light tracking-wider">MONOSPACED</span>
+        <span className="text-[13px] font-light tracking-wider">MONOSPACED</span>
         <input
           type="checkbox"
           checked={isMonospaced}
@@ -63,15 +63,15 @@ export default function ThemeSwitcher({ onThemeChange, onMonospacedChange }: The
       {/* Dark Toggle */}
       <label className="flex items-center gap-2.5 cursor-pointer hover:opacity-60 transition-opacity">
         <div
-          className={`w-3.5 h-3.5 md:w-3.5 md:h-3.5 w-3 h-3 border border-current relative transition-all ${
+          className={`w-3.5 h-3.5 border border-current relative transition-all ${
             isDark ? 'bg-current' : ''
           }`}
         >
           {isDark && (
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 md:w-1.5 md:h-1.5 w-1 h-1 bg-[--bg-color]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[--bg-color]" />
           )}
         </div>
-        <span className="text-[13px] md:text-[13px] text-[10px] font-light tracking-wider">DARK</span>
+        <span className="text-[13px] font-light tracking-wider">DARK</span>
         <input
           type="radio"
           name="theme"
@@ -84,15 +84,15 @@ export default function ThemeSwitcher({ onThemeChange, onMonospacedChange }: The
       {/* Light Toggle */}
       <label className="flex items-center gap-2.5 cursor-pointer hover:opacity-60 transition-opacity">
         <div
-          className={`w-3.5 h-3.5 md:w-3.5 md:h-3.5 w-3 h-3 border border-current relative transition-all ${
+          className={`w-3.5 h-3.5 border border-current relative transition-all ${
             !isDark ? 'bg-current' : ''
           }`}
         >
           {!isDark && (
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 md:w-1.5 md:h-1.5 w-1 h-1 bg-[--bg-color]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[--bg-color]" />
           )}
         </div>
-        <span className="text-[13px] md:text-[13px] text-[10px] font-light tracking-wider">LIGHT</span>
+        <span className="text-[13px] font-light tracking-wider">LIGHT</span>
         <input
           type="radio"
           name="theme"

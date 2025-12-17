@@ -48,11 +48,11 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen px-[70px] md:px-[70px] px-6 py-24 md:py-24 py-16 max-w-[1000px] mx-auto">
+    <div className="min-h-screen px-[70px] py-24 max-w-[1000px] mx-auto">
       {/* Header */}
-      <div className="mb-16 md:mb-16 mb-12">
-        <h2 className="text-[38px] md:text-[38px] text-[28px] font-light tracking-tight mb-6">Let's Connect</h2>
-        <p className="text-[16px] md:text-[16px] text-[13px] font-light leading-relaxed opacity-70 max-w-[700px]">
+      <div className="mb-16">
+        <h2 className="text-[38px] font-light tracking-tight mb-6">Let's Connect</h2>
+        <p className="text-[16px] font-light leading-relaxed opacity-70 max-w-[700px]">
           I'm always open to discussing photography projects, personal and professional growth opportunities,
           or just having a conversation. Topic? Up to you!
         </p>

@@ -1,7 +1,7 @@
 export default function Info() {
   return (
-    <div className="min-h-screen px-[70px] md:px-[70px] px-6 py-24 md:py-24 py-16 max-w-[900px] mx-auto">
-      <h2 className="text-[26px] md:text-[26px] text-[20px] font-light tracking-tight mb-10 md:mb-10 mb-8">Info</h2>
+    <div className="min-h-screen px-[70px] py-24 max-w-[900px] mx-auto">
+      <h2 className="text-[26px] font-light tracking-tight mb-10">Info</h2>
       <div className="space-y-6">
         <p className="text-[13px] leading-relaxed font-light">
           I'm a photographer and growth professional based in Chicago. I blend street photography
