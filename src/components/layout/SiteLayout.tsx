@@ -48,7 +48,7 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
 
       {/* Bio Text */}
       <div className="fixed bottom-20 right-[70px] max-w-[320px] z-[100]">
-        <p className="text-sm leading-relaxed font-light tracking-wide">
+        <p className="text-[11px] leading-relaxed font-light tracking-wide">
           Based in Chicago, Illinois. I believe street photography can be more diverse and inspiring.
           With a mission to document urban landscapes and human stories, I am pursuing new perspectives
           through my camera while driving eCommerce growth.
@@ -57,7 +57,7 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
 
       {/* Copyright */}
       <div className="fixed bottom-12 left-[70px] z-[100]">
-        <p className="text-xs font-light opacity-50">© Jack Ross</p>
+        <p className="text-[10px] font-light opacity-50">© Jack Ross</p>
       </div>
 
       {/* Main Content */}

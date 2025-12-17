@@ -22,7 +22,7 @@ export default function Projects() {
 
   return (
     <div className="min-h-screen px-[70px] py-24 max-w-[900px] mx-auto">
-      <h2 className="text-[32px] font-light tracking-tight mb-10">Projects</h2>
+      <h2 className="text-[26px] font-light tracking-tight mb-10">Projects</h2>
       <ul className="space-y-12">
         {projects.map((project) => (
           <li key={project.title} className="pb-12 border-b border-current/10 last:border-0">
@@ -33,10 +33,10 @@ export default function Projects() {
               className="block group hover:opacity-60 transition-opacity"
             >
               <div className="flex justify-between items-baseline mb-4">
-                <h3 className="text-[22px] font-light">{project.title}</h3>
-                <span className="text-[13px] font-light opacity-50">{project.date}</span>
+                <h3 className="text-[18px] font-light">{project.title}</h3>
+                <span className="text-[10px] font-light opacity-50">{project.date}</span>
               </div>
-              <p className="text-[15px] font-light leading-relaxed opacity-70">
+              <p className="text-[12px] font-light leading-relaxed opacity-70">
                 {project.description}
               </p>
             </a>
