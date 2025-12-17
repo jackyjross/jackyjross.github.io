@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import ShaderBackground from '../shader/ShaderBackground';
 import MainNav from './MainNav';
 import ThemeSwitcher from './ThemeSwitcher';
@@ -10,6 +11,7 @@ interface SiteLayoutProps {
 }
 
 export default function SiteLayout({ children }: SiteLayoutProps) {
+  const pathname = usePathname();
   const [isDark, setIsDark] = useState(true);
   const [isMonospaced, setIsMonospaced] = useState(false);
 
@@ -43,15 +45,17 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
         <div className="absolute bottom-5 left-0 w-full h-px bg-current opacity-20" />
       </div>
 
-      {/* Rule of Thirds Grid */}
-      <div className="fixed inset-0 z-[5] pointer-events-none">
-        {/* Vertical lines at 1/3 and 2/3 */}
-        <div className="absolute left-[33.333%] top-0 h-full w-px bg-current opacity-[0.08]" />
-        <div className="absolute left-[66.666%] top-0 h-full w-px bg-current opacity-[0.08]" />
-        {/* Horizontal lines at 1/3 and 2/3 */}
-        <div className="absolute top-[33.333%] left-0 w-full h-px bg-current opacity-[0.08]" />
-        <div className="absolute top-[66.666%] left-0 w-full h-px bg-current opacity-[0.08]" />
-      </div>
+      {/* Rule of Thirds Grid - Only on Home Page */}
+      {pathname === '/' && (
+        <div className="fixed inset-0 z-[5] pointer-events-none">
+          {/* Vertical lines at 1/3 and 2/3 */}
+          <div className="absolute left-[33.333%] top-0 h-full w-px bg-current opacity-[0.08]" />
+          <div className="absolute left-[66.666%] top-0 h-full w-px bg-current opacity-[0.08]" />
+          {/* Horizontal lines at 1/3 and 2/3 */}
+          <div className="absolute top-[33.333%] left-0 w-full h-px bg-current opacity-[0.08]" />
+          <div className="absolute top-[66.666%] left-0 w-full h-px bg-current opacity-[0.08]" />
+        </div>
+      )}
 
       <MainNav />
       <ThemeSwitcher onThemeChange={handleThemeChange} onMonospacedChange={handleMonospacedChange} />
