@@ -1,5 +1,9 @@
 1:"$Sreact.fragment"
-2:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
-3:"$Sreact.suspense"
-0:{"buildId":"53Kq0DStj7vCzGBUqXhqd","rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen px-[70px] py-24 max-w-[900px] mx-auto","children":[["$","h2",null,{"className":"text-[32px] font-light tracking-tight mb-10","children":"Contact"}],["$","ul",null,{"className":"flex flex-col gap-5","children":[["$","li","jackj.ross@gmail.com",{"children":["$","a",null,{"href":"mailto:jackj.ross@gmail.com","className":"text-lg font-light hover:opacity-60 transition-opacity inline-block","children":"jackj.ross@gmail.com"}]}],["$","li","Instagram ↗",{"children":["$","a",null,{"href":"https://instagram.com/jackjross","target":"_blank","rel":"noopener noreferrer","className":"text-lg font-light hover:opacity-60 transition-opacity inline-block","children":"Instagram ↗"}]}],["$","li","GitHub ↗",{"children":["$","a",null,{"href":"https://github.com/jackyjross","target":"_blank","rel":"noopener noreferrer","className":"text-lg font-light hover:opacity-60 transition-opacity inline-block","children":"GitHub ↗"}]}],["$","li","LinkedIn ↗",{"children":["$","a",null,{"href":"https://linkedin.com/in/jackjross","target":"_blank","rel":"noopener noreferrer","className":"text-lg font-light hover:opacity-60 transition-opacity inline-block","children":"LinkedIn ↗"}]}],["$","li","Substack ↗",{"children":["$","a",null,{"href":"https://jackjross.substack.com","target":"_blank","rel":"noopener noreferrer","className":"text-lg font-light hover:opacity-60 transition-opacity inline-block","children":"Substack ↗"}]}]]}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
-4:null
+2:I[47257,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"ClientPageRoot"]
+3:I[78299,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0e4d85f037a16691.js","/_next/static/chunks/5677f27f7fd88488.js"],"default"]
+6:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"buildId":"khvme-p6nCQ9PoUFtT5Ee","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/5677f27f7fd88488.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
