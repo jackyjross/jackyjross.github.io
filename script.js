@@ -1,5 +1,54 @@
-// GSAP Animations
+// Theme Switcher
 document.addEventListener('DOMContentLoaded', () => {
+    // Theme management
+    const body = document.body;
+    const monospacedToggle = document.getElementById('monospaced-toggle');
+    const darkToggle = document.getElementById('dark-toggle');
+    const lightToggle = document.getElementById('light-toggle');
+
+    // Load saved preferences
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedMonospaced = localStorage.getItem('monospaced') === 'true';
+
+    // Apply saved preferences
+    if (savedTheme === 'light') {
+        body.classList.add('light-theme');
+        lightToggle.checked = true;
+    } else {
+        darkToggle.checked = true;
+    }
+
+    if (savedMonospaced) {
+        body.classList.add('monospaced');
+        monospacedToggle.checked = true;
+    }
+
+    // Theme toggle handlers
+    darkToggle.addEventListener('change', () => {
+        if (darkToggle.checked) {
+            body.classList.remove('light-theme');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    lightToggle.addEventListener('change', () => {
+        if (lightToggle.checked) {
+            body.classList.add('light-theme');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    monospacedToggle.addEventListener('change', () => {
+        if (monospacedToggle.checked) {
+            body.classList.add('monospaced');
+            localStorage.setItem('monospaced', 'true');
+        } else {
+            body.classList.remove('monospaced');
+            localStorage.setItem('monospaced', 'false');
+        }
+    });
+
+    // GSAP Animations and navigation
     const mainContent = document.getElementById('main-content');
     const navLinks = document.querySelectorAll('.left-nav a');
     const navDot = document.querySelector('.nav-dot');

@@ -22,12 +22,11 @@
     const fragmentShader = `
         uniform float uTime;
         uniform vec2 uResolution;
-        uniform float uScale;
         uniform float uSpeed;
-        uniform float uBrightness;
-        uniform float uContrast;
-        uniform float uNoiseStrength;
-        uniform float uPatternMix;
+        uniform float uIntensity;
+        uniform vec3 uColor1;
+        uniform vec3 uColor2;
+        uniform vec3 uColor3;
         varying vec2 vUv;
 
         // Simplex noise function
@@ -66,23 +65,29 @@
 
         void main() {
             vec2 st = vUv;
-            vec2 pos = st * uScale;
 
-            // Animated noise layers (adjustable speed)
-            float n1 = snoise(pos + uTime * uSpeed * 0.5);
-            float n2 = snoise(pos * 1.5 - uTime * uSpeed * 0.8);
-            float n3 = snoise(pos * 2.5 + uTime * uSpeed * 0.4);
+            // Create flowing gradient with multiple noise layers
+            float noise1 = snoise(st * 2.0 + uTime * uSpeed * 0.3);
+            float noise2 = snoise(st * 3.0 - uTime * uSpeed * 0.2);
+            float noise3 = snoise(st * 1.5 + vec2(uTime * uSpeed * 0.15));
 
-            // Combine noise layers
-            float noise = (n1 + n2 * 0.5 + n3 * 0.25) / 1.75;
+            // Combine noise for smooth organic movement
+            float combinedNoise = (noise1 + noise2 * 0.5 + noise3 * 0.3) / 1.8;
 
-            // Create flowing pattern
-            float pattern = sin(pos.x + noise * uNoiseStrength) * cos(pos.y + noise * uNoiseStrength);
-            pattern = smoothstep(-uContrast, uContrast, pattern);
+            // Create gradient position that animates over time
+            float gradientPos = st.x * 0.5 + st.y * 0.5 + combinedNoise * uIntensity;
+            gradientPos += sin(uTime * uSpeed * 0.5) * 0.2;
 
-            // Adjustable color (grayscale with brightness control)
-            vec3 color = vec3(noise * uBrightness * 0.5 + uBrightness * 0.5);
-            color = mix(color, vec3(pattern * uBrightness), uPatternMix);
+            // Smooth gradient transitions between three colors
+            vec3 color;
+            if (gradientPos < 0.5) {
+                color = mix(uColor1, uColor2, smoothstep(0.0, 0.5, gradientPos));
+            } else {
+                color = mix(uColor2, uColor3, smoothstep(0.5, 1.0, gradientPos));
+            }
+
+            // Add subtle organic variation
+            color += combinedNoise * 0.03;
 
             gl_FragColor = vec4(color, 1.0);
         }
@@ -90,13 +95,19 @@
 
     // Shader parameters (adjustable via Tweakpane)
     const params = {
-        scale: 3.0,
-        speed: 0.1,
-        brightness: 0.15,
-        contrast: 0.3,
-        noiseStrength: 1.5,
-        patternMix: 0.2,
-        opacity: 0.3
+        speed: 0.15,
+        intensity: 0.3,
+        opacity: 0.4,
+        color1: { r: 0.1, g: 0.15, b: 0.25 },  // Deep blue
+        color2: { r: 0.15, g: 0.1, b: 0.2 },   // Purple
+        color3: { r: 0.08, g: 0.12, b: 0.18 }  // Dark blue
+    };
+
+    // Light theme colors
+    const lightThemeColors = {
+        color1: { r: 0.7, g: 0.75, b: 0.85 },  // Light blue
+        color2: { r: 0.75, g: 0.7, b: 0.8 },   // Light purple
+        color3: { r: 0.65, g: 0.72, b: 0.78 }  // Light blue-gray
     };
 
     const geometry = new THREE.PlaneGeometry(2, 2);
@@ -106,17 +117,41 @@
         uniforms: {
             uTime: { value: 0.0 },
             uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
-            uScale: { value: params.scale },
             uSpeed: { value: params.speed },
-            uBrightness: { value: params.brightness },
-            uContrast: { value: params.contrast },
-            uNoiseStrength: { value: params.noiseStrength },
-            uPatternMix: { value: params.patternMix }
+            uIntensity: { value: params.intensity },
+            uColor1: { value: new THREE.Vector3(params.color1.r, params.color1.g, params.color1.b) },
+            uColor2: { value: new THREE.Vector3(params.color2.r, params.color2.g, params.color2.b) },
+            uColor3: { value: new THREE.Vector3(params.color3.r, params.color3.g, params.color3.b) }
         }
     });
 
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
+
+    // Function to update gradient colors based on theme
+    const updateThemeColors = () => {
+        const isLightTheme = document.body.classList.contains('light-theme');
+        if (isLightTheme) {
+            material.uniforms.uColor1.value.set(lightThemeColors.color1.r, lightThemeColors.color1.g, lightThemeColors.color1.b);
+            material.uniforms.uColor2.value.set(lightThemeColors.color2.r, lightThemeColors.color2.g, lightThemeColors.color2.b);
+            material.uniforms.uColor3.value.set(lightThemeColors.color3.r, lightThemeColors.color3.g, lightThemeColors.color3.b);
+            canvas.style.opacity = 0.25;
+        } else {
+            material.uniforms.uColor1.value.set(params.color1.r, params.color1.g, params.color1.b);
+            material.uniforms.uColor2.value.set(params.color2.r, params.color2.g, params.color2.b);
+            material.uniforms.uColor3.value.set(params.color3.r, params.color3.g, params.color3.b);
+            canvas.style.opacity = params.opacity;
+        }
+    };
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+        updateThemeColors();
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+    // Apply initial theme
+    updateThemeColors();
 
     // Animation loop
     function animate(time) {
@@ -137,7 +172,7 @@
     // Tweakpane Setup
     if (typeof Tweakpane !== 'undefined') {
         const pane = new Tweakpane.Pane({
-            title: 'Shader Controls',
+            title: 'Gradient Controls',
             expanded: true,
         });
 
@@ -145,15 +180,6 @@
         const animFolder = pane.addFolder({
             title: 'Animation',
             expanded: true,
-        });
-
-        animFolder.addBinding(params, 'scale', {
-            min: 1.0,
-            max: 10.0,
-            step: 0.1,
-            label: 'Scale'
-        }).on('change', (e) => {
-            material.uniforms.uScale.value = e.value;
         });
 
         animFolder.addBinding(params, 'speed', {
@@ -165,55 +191,49 @@
             material.uniforms.uSpeed.value = e.value;
         });
 
-        animFolder.addBinding(params, 'noiseStrength', {
-            min: 0.0,
-            max: 5.0,
-            step: 0.1,
-            label: 'Noise Strength'
-        }).on('change', (e) => {
-            material.uniforms.uNoiseStrength.value = e.value;
-        });
-
-        // Appearance folder
-        const appearFolder = pane.addFolder({
-            title: 'Appearance',
-            expanded: true,
-        });
-
-        appearFolder.addBinding(params, 'brightness', {
+        animFolder.addBinding(params, 'intensity', {
             min: 0.0,
             max: 1.0,
             step: 0.01,
-            label: 'Brightness'
+            label: 'Intensity'
         }).on('change', (e) => {
-            material.uniforms.uBrightness.value = e.value;
+            material.uniforms.uIntensity.value = e.value;
         });
 
-        appearFolder.addBinding(params, 'contrast', {
-            min: 0.0,
-            max: 1.0,
-            step: 0.01,
-            label: 'Contrast'
-        }).on('change', (e) => {
-            material.uniforms.uContrast.value = e.value;
-        });
-
-        appearFolder.addBinding(params, 'patternMix', {
-            min: 0.0,
-            max: 1.0,
-            step: 0.01,
-            label: 'Pattern Mix'
-        }).on('change', (e) => {
-            material.uniforms.uPatternMix.value = e.value;
-        });
-
-        appearFolder.addBinding(params, 'opacity', {
+        animFolder.addBinding(params, 'opacity', {
             min: 0.0,
             max: 1.0,
             step: 0.01,
             label: 'Opacity'
         }).on('change', (e) => {
             canvas.style.opacity = e.value;
+        });
+
+        // Colors folder
+        const colorFolder = pane.addFolder({
+            title: 'Colors',
+            expanded: true,
+        });
+
+        colorFolder.addBinding(params, 'color1', {
+            label: 'Color 1',
+            color: { type: 'float' }
+        }).on('change', (e) => {
+            material.uniforms.uColor1.value.set(e.value.r, e.value.g, e.value.b);
+        });
+
+        colorFolder.addBinding(params, 'color2', {
+            label: 'Color 2',
+            color: { type: 'float' }
+        }).on('change', (e) => {
+            material.uniforms.uColor2.value.set(e.value.r, e.value.g, e.value.b);
+        });
+
+        colorFolder.addBinding(params, 'color3', {
+            label: 'Color 3',
+            color: { type: 'float' }
+        }).on('change', (e) => {
+            material.uniforms.uColor3.value.set(e.value.r, e.value.g, e.value.b);
         });
 
         // Presets
@@ -223,51 +243,55 @@
         });
 
         const PRESETS = {
-            'Subtle (Current)': () => {
-                params.scale = 3.0;
-                params.speed = 0.1;
-                params.brightness = 0.15;
-                params.contrast = 0.3;
-                params.noiseStrength = 1.5;
-                params.patternMix = 0.2;
-                params.opacity = 0.3;
-            },
-            'Flowing Gel': () => {
-                params.scale = 4.0;
+            'Deep Ocean (Current)': () => {
                 params.speed = 0.15;
-                params.brightness = 0.25;
-                params.contrast = 0.4;
-                params.noiseStrength = 2.5;
-                params.patternMix = 0.5;
+                params.intensity = 0.3;
                 params.opacity = 0.4;
+                params.color1 = { r: 0.1, g: 0.15, b: 0.25 };
+                params.color2 = { r: 0.15, g: 0.1, b: 0.2 };
+                params.color3 = { r: 0.08, g: 0.12, b: 0.18 };
             },
-            'Organic Waves': () => {
-                params.scale = 5.0;
-                params.speed = 0.08;
-                params.brightness = 0.2;
-                params.contrast = 0.25;
-                params.noiseStrength = 3.0;
-                params.patternMix = 0.3;
-                params.opacity = 0.35;
-            },
-            'Fast Liquid': () => {
-                params.scale = 2.5;
-                params.speed = 0.25;
-                params.brightness = 0.3;
-                params.contrast = 0.5;
-                params.noiseStrength = 2.0;
-                params.patternMix = 0.6;
+            'Purple Haze': () => {
+                params.speed = 0.12;
+                params.intensity = 0.4;
                 params.opacity = 0.45;
+                params.color1 = { r: 0.2, g: 0.1, b: 0.25 };
+                params.color2 = { r: 0.15, g: 0.05, b: 0.3 };
+                params.color3 = { r: 0.1, g: 0.15, b: 0.2 };
             },
-            'Minimal': () => {
-                params.scale = 6.0;
-                params.speed = 0.05;
-                params.brightness = 0.1;
-                params.contrast = 0.2;
-                params.noiseStrength = 1.0;
-                params.patternMix = 0.1;
-                params.opacity = 0.2;
+            'Warm Sunset': () => {
+                params.speed = 0.1;
+                params.intensity = 0.35;
+                params.opacity = 0.4;
+                params.color1 = { r: 0.25, g: 0.1, b: 0.15 };
+                params.color2 = { r: 0.2, g: 0.15, b: 0.1 };
+                params.color3 = { r: 0.15, g: 0.08, b: 0.2 };
+            },
+            'Mint Fresh': () => {
+                params.speed = 0.18;
+                params.intensity = 0.3;
+                params.opacity = 0.35;
+                params.color1 = { r: 0.08, g: 0.2, b: 0.18 };
+                params.color2 = { r: 0.1, g: 0.15, b: 0.2 };
+                params.color3 = { r: 0.12, g: 0.18, b: 0.15 };
+            },
+            'Monochrome': () => {
+                params.speed = 0.08;
+                params.intensity = 0.25;
+                params.opacity = 0.3;
+                params.color1 = { r: 0.05, g: 0.05, b: 0.05 };
+                params.color2 = { r: 0.1, g: 0.1, b: 0.1 };
+                params.color3 = { r: 0.08, g: 0.08, b: 0.08 };
             }
+        };
+
+        const updateUniforms = () => {
+            material.uniforms.uSpeed.value = params.speed;
+            material.uniforms.uIntensity.value = params.intensity;
+            material.uniforms.uColor1.value.set(params.color1.r, params.color1.g, params.color1.b);
+            material.uniforms.uColor2.value.set(params.color2.r, params.color2.g, params.color2.b);
+            material.uniforms.uColor3.value.set(params.color3.r, params.color3.g, params.color3.b);
+            canvas.style.opacity = params.opacity;
         };
 
         Object.keys(PRESETS).forEach(name => {
@@ -276,13 +300,7 @@
             }).on('click', () => {
                 PRESETS[name]();
                 pane.refresh();
-                material.uniforms.uScale.value = params.scale;
-                material.uniforms.uSpeed.value = params.speed;
-                material.uniforms.uBrightness.value = params.brightness;
-                material.uniforms.uContrast.value = params.contrast;
-                material.uniforms.uNoiseStrength.value = params.noiseStrength;
-                material.uniforms.uPatternMix.value = params.patternMix;
-                canvas.style.opacity = params.opacity;
+                updateUniforms();
             });
         });
 
