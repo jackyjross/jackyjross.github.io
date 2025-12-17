@@ -51,7 +51,15 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
         <p className="text-[11px] leading-relaxed font-light tracking-wide">
           Based in Chicago, Illinois. I believe street photography can be more diverse and inspiring.
           With a mission to document urban landscapes and human stories, I am pursuing new perspectives
-          through my camera while driving eCommerce growth.
+          through my camera while driving eCommerce growth and strategic partnerships at{' '}
+          <a
+            href="https://cpg.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:opacity-60 transition-opacity"
+          >
+            CPGIO
+          </a>.
         </p>
       </div>
 
