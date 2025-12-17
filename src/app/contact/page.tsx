@@ -8,8 +8,8 @@ export default function Contact() {
   const professionalContacts = [
     {
       label: "Email",
-      value: "jackj.ross@gmail.com",
-      href: "mailto:jackj.ross@gmail.com",
+      value: "me@jackjross.com",
+      href: "mailto:me@jackjross.com",
       description: "Best for professional inquiries and collaborations"
     },
     {
@@ -42,7 +42,7 @@ export default function Contact() {
   ];
 
   const handleCopyEmail = async () => {
-    await navigator.clipboard.writeText('jackj.ross@gmail.com');
+    await navigator.clipboard.writeText('me@jackjross.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
