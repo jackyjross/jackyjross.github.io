@@ -14,13 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedTheme === 'light') {
         body.classList.add('light-theme');
         lightToggle.checked = true;
+        lightToggle.parentElement.classList.add('is-selected');
+        darkToggle.parentElement.classList.remove('is-selected');
     } else {
         darkToggle.checked = true;
+        darkToggle.parentElement.classList.add('is-selected');
     }
 
     if (savedMonospaced) {
         body.classList.add('monospaced');
         monospacedToggle.checked = true;
+        monospacedToggle.parentElement.classList.add('is-selected');
     }
 
     // Theme toggle handlers
@@ -28,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (darkToggle.checked) {
             body.classList.remove('light-theme');
             localStorage.setItem('theme', 'dark');
+            darkToggle.parentElement.classList.add('is-selected');
+            lightToggle.parentElement.classList.remove('is-selected');
         }
     });
 
@@ -35,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lightToggle.checked) {
             body.classList.add('light-theme');
             localStorage.setItem('theme', 'light');
+            lightToggle.parentElement.classList.add('is-selected');
+            darkToggle.parentElement.classList.remove('is-selected');
         }
     });
 
@@ -42,47 +50,43 @@ document.addEventListener('DOMContentLoaded', () => {
         if (monospacedToggle.checked) {
             body.classList.add('monospaced');
             localStorage.setItem('monospaced', 'true');
+            monospacedToggle.parentElement.classList.add('is-selected');
         } else {
             body.classList.remove('monospaced');
             localStorage.setItem('monospaced', 'false');
+            monospacedToggle.parentElement.classList.remove('is-selected');
         }
     });
 
     // GSAP Animations and navigation
     const mainContent = document.getElementById('main-content');
-    const navLinks = document.querySelectorAll('.left-nav a');
-    const navDot = document.querySelector('.nav-dot');
+    const navLinks = document.querySelectorAll('.nav-text');
+    const navItems = document.querySelectorAll('.site-header-nav li');
 
     // Enhanced entrance animations with stagger
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    tl.from('header h1', {
+    tl.from('.site-header-title', {
         duration: 1.2,
         opacity: 0,
         y: -30,
         ease: 'power4.out'
     })
-    .from('header .subtitle', {
+    .from('.site-header-label', {
         duration: 0.8,
         opacity: 0,
         y: -10
     }, '-=0.6')
-    .from('.left-nav li', {
+    .from('.site-header-nav li', {
         duration: 0.8,
         opacity: 0,
         x: -30,
         stagger: 0.1
     }, '-=0.4')
-    .from('.social-links a', {
+    .from('.theme .theme-btn', {
         duration: 0.8,
         opacity: 0,
-        x: -20,
-        stagger: 0.1
-    }, '-=0.6')
-    .from('.theme-switcher .theme-option', {
-        duration: 0.8,
-        opacity: 0,
-        x: -20,
+        x: 20,
         stagger: 0.1
     }, '-=0.6')
     .from('.bio', {
@@ -90,14 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0,
         y: 30
     }, '-=0.8')
-    .from('footer', {
+    .from('.copyright', {
         duration: 0.8,
         opacity: 0,
         y: 20
     }, '-=0.6');
 
     // Magnetic effect for interactive elements
-    const interactiveElements = document.querySelectorAll('.left-nav a, .social-links a, .theme-option');
+    const interactiveElements = document.querySelectorAll('.nav-text, .theme-btn');
     interactiveElements.forEach(link => {
         link.addEventListener('mouseenter', (e) => {
             gsap.to(e.target, {
@@ -116,15 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Parallax effect removed for cleaner look
-
     // Navigation functionality
-    navLinks.forEach(link => {
+    navLinks.forEach((link, index) => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
 
-            // If it's the home button (dot), close the content
-            if (this.classList.contains('nav-dot')) {
+            // If it's the home button
+            if (href === '#' || href === '') {
                 e.preventDefault();
                 gsap.to(mainContent, {
                     opacity: 0,
@@ -133,6 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     onComplete: () => {
                         mainContent.classList.add('hidden');
                         gsap.set(mainContent, { opacity: 1 });
+
+                        // Update active state
+                        navItems.forEach(item => item.classList.remove('is-selected'));
+                        navItems[index].classList.add('is-selected');
                     }
                 });
                 return;
@@ -145,6 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const targetSection = document.getElementById(targetId);
 
                 if (targetSection) {
+                    // Update active state
+                    navItems.forEach(item => item.classList.remove('is-selected'));
+                    navItems[index].classList.add('is-selected');
+
                     // Show main content with animation
                     mainContent.classList.remove('hidden');
 
@@ -167,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 behavior: 'smooth'
                             });
 
-                            // Animate section in with stagger for list items
+                            // Animate section in
                             gsap.fromTo(targetSection,
                                 { opacity: 0, y: 30 },
                                 {
@@ -223,20 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close main content when clicking outside or on dot
-    navDot.addEventListener('click', (e) => {
-        e.preventDefault();
-        gsap.to(mainContent, {
-            opacity: 0,
-            duration: 0.3,
-            ease: 'power2.in',
-            onComplete: () => {
-                mainContent.classList.add('hidden');
-                gsap.set(mainContent, { opacity: 1 });
-            }
-        });
-    });
-
     // Add close button to main content
     const closeBtn = document.createElement('button');
     closeBtn.className = 'close-btn';
@@ -269,6 +265,10 @@ document.addEventListener('DOMContentLoaded', () => {
             onComplete: () => {
                 mainContent.classList.add('hidden');
                 gsap.set(mainContent, { opacity: 1 });
+
+                // Reset to home
+                navItems.forEach(item => item.classList.remove('is-selected'));
+                navItems[0].classList.add('is-selected');
             }
         });
     });
@@ -277,17 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hide all sections initially
     document.querySelectorAll('.content-section').forEach(section => {
         section.style.display = 'none';
-    });
-
-    // Bio text animation removed for cleaner look
-
-    // Subtle pulse animation for page border
-    gsap.to('body::before', {
-        opacity: 0.15,
-        duration: 3,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1
     });
 
     // Smooth fade in for gradient when switching themes
