@@ -17,7 +17,7 @@ html {
     --border-color: rgba(255, 255, 255, 0.2);
     --border-subtle: rgba(255, 255, 255, 0.1);
     --overlay-bg: rgba(10, 10, 10, 0.95);
-    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 body.light-theme {
@@ -129,7 +129,7 @@ header .subtitle {
 /* Social Links */
 .social-links {
     position: fixed;
-    bottom: 80px;
+    bottom: 250px;
     left: 70px;
     z-index: 5;
     display: flex;
@@ -170,7 +170,7 @@ header .subtitle {
 /* Footer */
 footer {
     position: fixed;
-    bottom: 40px;
+    bottom: 50px;
     left: 70px;
     z-index: 5;
 }
@@ -353,19 +353,19 @@ h3 {
 /* Theme Switcher */
 .theme-switcher {
     position: fixed;
-    bottom: 140px;
+    bottom: 95px;
     left: 70px;
     z-index: 5;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
 }
 
 .theme-option {
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 300;
     color: var(--text-color);
     transition: opacity 0.3s ease, color 0.3s ease;
@@ -433,13 +433,13 @@ h3 {
     }
 
     .theme-switcher {
-        bottom: 95px;
+        bottom: 80px;
         left: 25px;
-        gap: 12px;
+        gap: 15px;
     }
 
     .theme-option {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .theme-option input[type="checkbox"],
@@ -494,17 +494,17 @@ h3 {
     }
 
     .social-links {
-        bottom: auto;
-        top: 110px;
-        left: auto;
-        right: 25px;
-        flex-direction: row;
+        bottom: 200px;
+        top: auto;
+        left: 25px;
+        right: auto;
+        flex-direction: column;
         gap: 12px;
     }
 
     .social-links a {
-        writing-mode: horizontal-tb;
-        text-orientation: initial;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
         min-height: 44px;
         display: inline-flex;
         align-items: center;
@@ -524,7 +524,7 @@ h3 {
     }
 
     footer {
-        bottom: 25px;
+        bottom: 30px;
         left: 25px;
     }
 
@@ -590,13 +590,23 @@ h3 {
 /* Extra small devices */
 @media (max-width: 480px) {
     .theme-switcher {
-        bottom: 80px;
+        bottom: 70px;
         left: 20px;
-        gap: 10px;
+        gap: 14px;
     }
 
     .theme-option {
-        font-size: 10px;
+        font-size: 11px;
+    }
+
+    .social-links {
+        bottom: 180px;
+        left: 20px;
+    }
+
+    footer {
+        bottom: 25px;
+        left: 20px;
     }
 
     body::before {
@@ -621,12 +631,6 @@ h3 {
         left: 20px;
     }
 
-    .social-links {
-        top: 95px;
-        right: 20px;
-        gap: 10px;
-    }
-
     .bio {
         bottom: 50px;
         left: 20px;
@@ -635,11 +639,6 @@ h3 {
 
     .bio p {
         font-size: 11px;
-    }
-
-    footer {
-        bottom: 20px;
-        left: 20px;
     }
 
     .content-wrapper {
