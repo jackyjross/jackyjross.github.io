@@ -371,9 +371,13 @@ h3 {
     cursor: pointer;
     font-size: 13px;
     font-weight: 300;
-    color: var(--text-color);
+    color: var(--text-color) !important;
     transition: opacity 0.3s ease, color 0.3s ease;
     letter-spacing: 0.5px;
+}
+
+.theme-option span {
+    color: var(--text-color) !important;
 }
 
 .theme-option:hover {
@@ -385,11 +389,12 @@ h3 {
     appearance: none;
     width: 14px;
     height: 14px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color) !important;
     margin-right: 10px;
     cursor: pointer;
     position: relative;
     transition: border-color 0.3s ease, background-color 0.3s ease;
+    background-color: transparent !important;
 }
 
 .theme-option input[type="radio"] {

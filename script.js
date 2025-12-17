@@ -116,16 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Parallax effect on bio text
-    let scrollPos = 0;
-    window.addEventListener('scroll', () => {
-        scrollPos = window.pageYOffset;
-        gsap.to('.bio', {
-            y: scrollPos * 0.3,
-            duration: 0.5,
-            ease: 'power1.out'
-        });
-    });
+    // Parallax effect removed for cleaner look
 
     // Navigation functionality
     navLinks.forEach(link => {
@@ -288,14 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         section.style.display = 'none';
     });
 
-    // Floating animation for bio text
-    gsap.to('.bio', {
-        y: '+=10',
-        duration: 2.5,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1
-    });
+    // Bio text animation removed for cleaner look
 
     // Subtle pulse animation for page border
     gsap.to('body::before', {
