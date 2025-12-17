@@ -128,12 +128,6 @@ header .subtitle {
     line-height: 1;
 }
 
-.left-nav li:not(:first-child)::before {
-    content: '●';
-    margin-right: 8px;
-    opacity: 0.5;
-}
-
 /* Social Links */
 .social-links {
     position: fixed;
