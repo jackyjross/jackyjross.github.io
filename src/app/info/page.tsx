@@ -20,10 +20,16 @@ export default function Info() {
             Fujifilm X-Pro3 + XF 23mm F2
           </li>
           <li className="pl-5 relative before:content-['→'] before:absolute before:left-0 before:opacity-50 font-light text-[13px]">
+            DJI Osmo Action 5 Pro
+          </li>
+          <li className="pl-5 relative before:content-['→'] before:absolute before:left-0 before:opacity-50 font-light text-[13px]">
+            Olympus Stylus 35mm P&S
+          </li>
+          <li className="pl-5 relative before:content-['→'] before:absolute before:left-0 before:opacity-50 font-light text-[13px]">
             Lightroom, Capture One
           </li>
           <li className="pl-5 relative before:content-['→'] before:absolute before:left-0 before:opacity-50 font-light text-[13px]">
-            Claude Code, Cursor, Replit
+            Claude Code
           </li>
         </ul>
       </div>
