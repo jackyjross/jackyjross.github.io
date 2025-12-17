@@ -129,7 +129,7 @@ header .subtitle {
 /* Social Links */
 .social-links {
     position: fixed;
-    bottom: 250px;
+    bottom: 300px;
     left: 70px;
     z-index: 5;
     display: flex;
@@ -494,7 +494,7 @@ h3 {
     }
 
     .social-links {
-        bottom: 200px;
+        bottom: 240px;
         top: auto;
         left: 25px;
         right: auto;
@@ -600,7 +600,7 @@ h3 {
     }
 
     .social-links {
-        bottom: 180px;
+        bottom: 220px;
         left: 20px;
     }
 
