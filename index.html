@@ -17,32 +17,71 @@
     <!-- WebGL Canvas Background -->
     <canvas id="canvas"></canvas>
 
+    <!-- Frame Border -->
+    <div class="frame">
+        <div class="frame-line frame-line-left"></div>
+        <div class="frame-line frame-line-right"></div>
+        <div class="frame-line frame-line-top"></div>
+        <div class="frame-line frame-line-bottom"></div>
+    </div>
+
     <!-- Header -->
-    <header>
-        <h1>Jack Ross</h1>
-        <p class="subtitle">Photographer & Growth Professional</p>
+    <header class="site-header">
+        <h1 class="site-header-title">Jack Ross</h1>
+        <p class="site-header-label">Photographer & Growth Professional</p>
+
+        <!-- Navigation -->
+        <nav class="site-header-nav">
+            <ul>
+                <li class="is-selected">
+                    <div class="nav-dot">●</div>
+                    <a class="nav-text" href="#">Home</a>
+                </li>
+                <li>
+                    <div class="nav-dot">●</div>
+                    <a class="nav-text" href="#projects">Projects</a>
+                </li>
+                <li>
+                    <div class="nav-dot">●</div>
+                    <a class="nav-text" href="#info">Info</a>
+                </li>
+                <li>
+                    <div class="nav-dot">●</div>
+                    <a class="nav-text" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Left Navigation -->
-    <nav class="left-nav">
-        <ul>
-            <li><a href="#" class="nav-dot">•</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#info">Info</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Social Links -->
-    <div class="social-links">
-        <a href="https://instagram.com/jackjross" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-        <a href="https://github.com/jackyjross" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
-        <a href="https://linkedin.com/in/jackjross" target="_blank" rel="noopener" aria-label="LinkedIn">LI</a>
+    <!-- Theme Switcher -->
+    <div class="theme">
+        <label class="theme-btn">
+            <div class="theme-box"></div>
+            <span class="theme-text">Monospaced</span>
+            <input type="checkbox" id="monospaced-toggle">
+        </label>
+        <div class="theme-colors">
+            <label class="theme-btn is-selected">
+                <div class="theme-box"></div>
+                <span class="theme-text">Dark</span>
+                <input type="radio" name="theme" value="dark" id="dark-toggle" checked>
+            </label>
+            <label class="theme-btn">
+                <div class="theme-box"></div>
+                <span class="theme-text">Light</span>
+                <input type="radio" name="theme" value="light" id="light-toggle">
+            </label>
+        </div>
     </div>
 
     <!-- Bio Text (Bottom Right) -->
     <div class="bio">
         <p>Based in Chicago, Illinois. I believe street photography can be more diverse and inspiring. With a mission to document urban landscapes and human stories, I am pursuing new perspectives through my camera while driving eCommerce growth.</p>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>© Jack Ross</p>
     </div>
 
     <!-- Main Content (Hidden by default, shown when clicking nav items) -->
@@ -98,35 +137,14 @@
                 <h2>Contact</h2>
                 <ul class="contact-list">
                     <li><a href="mailto:jackj.ross@gmail.com">jackj.ross@gmail.com</a></li>
-                    <li><a href="https://instagram.com/jackjross" target="_blank" rel="noopener">Instagram</a></li>
-                    <li><a href="https://github.com/jackyjross" target="_blank" rel="noopener">GitHub</a></li>
-                    <li><a href="https://linkedin.com/in/jackjross" target="_blank" rel="noopener">LinkedIn</a></li>
-                    <li><a href="https://jackjross.substack.com" target="_blank" rel="noopener">Substack</a></li>
+                    <li><a href="https://instagram.com/jackjross" target="_blank" rel="noopener">Instagram ↗</a></li>
+                    <li><a href="https://github.com/jackyjross" target="_blank" rel="noopener">GitHub ↗</a></li>
+                    <li><a href="https://linkedin.com/in/jackjross" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+                    <li><a href="https://jackjross.substack.com" target="_blank" rel="noopener">Substack ↗</a></li>
                 </ul>
             </section>
         </div>
     </main>
-
-    <!-- Theme Switcher -->
-    <div class="theme-switcher">
-        <label class="theme-option">
-            <input type="checkbox" id="monospaced-toggle">
-            <span>MONOSPACED</span>
-        </label>
-        <label class="theme-option">
-            <input type="radio" name="theme" value="dark" id="dark-toggle" checked>
-            <span>DARK</span>
-        </label>
-        <label class="theme-option">
-            <input type="radio" name="theme" value="light" id="light-toggle">
-            <span>LIGHT</span>
-        </label>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>© Jack Ross</p>
-    </footer>
 
     <script src="shader.js"></script>
     <script src="script.js"></script>
