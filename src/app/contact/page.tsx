@@ -53,8 +53,8 @@ export default function Contact() {
       <div className="mb-16">
         <h2 className="text-[38px] font-light tracking-tight mb-6">Let's Connect</h2>
         <p className="text-[16px] font-light leading-relaxed opacity-70 max-w-[700px]">
-          I'm always open to discussing photography projects, growth opportunities,
-          or just having a conversation about urban landscapes and storytelling.
+          I'm always open to discussing photography projects, personal and professional growth opportunities,
+          or just having a conversation. Topic? Up to you!
         </p>
       </div>
 
