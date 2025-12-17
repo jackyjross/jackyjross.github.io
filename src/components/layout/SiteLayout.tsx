@@ -39,10 +39,10 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
 
       {/* Frame Border */}
       <div className="fixed inset-0 z-10 pointer-events-none">
-        <div className="absolute left-5 top-0 h-full w-px bg-current opacity-20" />
-        <div className="absolute right-5 top-0 h-full w-px bg-current opacity-20" />
-        <div className="absolute top-5 left-0 w-full h-px bg-current opacity-20" />
-        <div className="absolute bottom-5 left-0 w-full h-px bg-current opacity-20" />
+        <div className="absolute left-5 md:left-5 left-3 top-0 h-full w-px bg-current opacity-20" />
+        <div className="absolute right-5 md:right-5 right-3 top-0 h-full w-px bg-current opacity-20" />
+        <div className="absolute top-5 md:top-5 top-3 left-0 w-full h-px bg-current opacity-20" />
+        <div className="absolute bottom-5 md:bottom-5 bottom-3 left-0 w-full h-px bg-current opacity-20" />
       </div>
 
       {/* Rule of Thirds Grid - Only on Home Page */}
@@ -61,8 +61,8 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
       <ThemeSwitcher onThemeChange={handleThemeChange} onMonospacedChange={handleMonospacedChange} />
 
       {/* Bio Text */}
-      <div className="fixed bottom-20 right-[70px] max-w-[320px] z-[100]">
-        <p className="text-[11px] leading-relaxed font-light tracking-wide">
+      <div className="fixed bottom-20 right-[70px] max-w-[320px] z-[100] md:bottom-20 md:right-[70px] md:max-w-[320px] bottom-24 right-6 left-6 max-w-none">
+        <p className="text-[11px] md:text-[11px] text-[10px] leading-relaxed font-light tracking-wide">
           Based in Chicago, Illinois. I believe street photography can be more diverse and inspiring.
           With a mission to document urban landscapes and human stories, I am pursuing new perspectives
           through my camera while driving eCommerce growth and strategic partnerships at{' '}
@@ -78,8 +78,8 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
       </div>
 
       {/* Copyright */}
-      <div className="fixed bottom-12 left-[70px] z-[100]">
-        <p className="text-[10px] font-light opacity-50">© Jack Ross</p>
+      <div className="fixed bottom-12 left-[70px] z-[100] md:bottom-12 md:left-[70px] bottom-6 left-6">
+        <p className="text-[10px] md:text-[10px] text-[9px] font-light opacity-50">© Jack Ross</p>
       </div>
 
       {/* Main Content */}

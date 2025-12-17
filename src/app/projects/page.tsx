@@ -21,8 +21,8 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-screen px-[70px] py-24 max-w-[900px] mx-auto">
-      <h2 className="text-[26px] font-light tracking-tight mb-10">Projects</h2>
+    <div className="min-h-screen px-[70px] md:px-[70px] px-6 py-24 md:py-24 py-16 max-w-[900px] mx-auto">
+      <h2 className="text-[26px] md:text-[26px] text-[20px] font-light tracking-tight mb-10 md:mb-10 mb-8">Projects</h2>
       <ul className="space-y-12">
         {projects.map((project) => (
           <li key={project.title} className="pb-12 border-b border-current/10 last:border-0">
