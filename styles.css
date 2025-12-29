@@ -374,7 +374,7 @@ body.dark-mode .badge.red {
     font-family: Menlo, Consolas, monospace;
     font-size: 0.75rem;
     background-color: #ffffff;
-    padding: 0.75rem;
+    padding: 1.5rem 2rem;
     border-radius: 0 0 0.375rem 0.375rem;
     overflow-x: auto;
     border: 1px solid var(--color-divider);
